@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{38486A00-1003-425F-AB9A-1602E187628E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{43343103-E62C-48A8-A296-12609D0134C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeninsonLirianoPrimerParcial", "DeninsonLirianoPrimerParcial\DeninsonLirianoPrimerParcial.csproj", "{BB41F614-1BB1-4469-883F-99C77D9C6E73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38486A00-1003-425F-AB9A-1602E187628E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38486A00-1003-425F-AB9A-1602E187628E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38486A00-1003-425F-AB9A-1602E187628E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38486A00-1003-425F-AB9A-1602E187628E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43343103-E62C-48A8-A296-12609D0134C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43343103-E62C-48A8-A296-12609D0134C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43343103-E62C-48A8-A296-12609D0134C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43343103-E62C-48A8-A296-12609D0134C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB41F614-1BB1-4469-883F-99C77D9C6E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB41F614-1BB1-4469-883F-99C77D9C6E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB41F614-1BB1-4469-883F-99C77D9C6E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB41F614-1BB1-4469-883F-99C77D9C6E73}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
