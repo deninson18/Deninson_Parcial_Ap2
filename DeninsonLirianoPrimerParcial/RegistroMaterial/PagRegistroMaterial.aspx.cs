@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
+using System.Data;
 
 
 
@@ -15,7 +16,13 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Registro registro = new Registro();
+            DataTable dt = new DataTable();
+            if (!IsPostBack)
+            {
+                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Material"), new DataColumn("Cantidad") });
+                Session["Materiales"]=dt;
+            }
         }
 
         public void CargarDatos(Registro registro)
@@ -23,7 +30,7 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             registro.Razon = razonTextBox.Text;
             foreach (GridViewRow row in MaterialGridView.Rows)
             {
-                registro.AgregarMaterial(row.Cells[0].Text, Convert.ToInt32(row.Cells[1].ToString()));
+                registro.AgregarMaterial(row.Cells[0].Text, Convert.ToInt32(row.Cells[1].Text));
             }
         }
 
@@ -54,6 +61,19 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             }
 
             
+        }
+
+        protected void Agregar_Click(object sender, EventArgs e)
+        {
+            Registro registo = new Registro();
+            DataTable dt = (DataTable)Session["Materiales"];
+            dt.Rows.Add(materialTextBox.Text, cantidadTextBox.Text);
+            Session["Materiales"] = dt;
+            MaterialGridView.DataSource = dt;
+            MaterialGridView.DataBind();
+
+            materialTextBox.Text = string.Empty;
+            cantidadTextBox.Text = string.Empty;
         }
     }
 }

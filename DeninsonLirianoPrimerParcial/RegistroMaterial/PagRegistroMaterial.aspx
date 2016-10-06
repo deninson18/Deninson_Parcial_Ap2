@@ -8,7 +8,7 @@
     </p>
     MATERIAL<asp:TextBox ID="materialTextBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CANTIDAD<asp:TextBox ID="cantidadTextBox" runat="server" style="margin-bottom: 2px"></asp:TextBox>
-    <asp:Button ID="Agregar" runat="server" Text="Agregar" />
+    <asp:Button ID="Agregar" runat="server" Text="Agregar" OnClick="Agregar_Click" />
     <p>
         <asp:GridView ID="MaterialGridView" runat="server" AutoGenerateColumns="False">
             <Columns>
