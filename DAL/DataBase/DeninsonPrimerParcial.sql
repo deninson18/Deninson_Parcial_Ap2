@@ -9,9 +9,12 @@ Razon varchar(30));
 
 create table MaterialesDetalle
 (MaterialesDetalle int primary key identity(1,1),
-MaterialId int foreign key references Materiales(MaterialId),
+MaterialId int references Materiales(MaterialId),
 Material Varchar(20),
 Cantidad int);
+
+drop table MaterialesDetalle
+drop table Materiales
 
 select * from Materiales;
 select * from MaterialesDetalle

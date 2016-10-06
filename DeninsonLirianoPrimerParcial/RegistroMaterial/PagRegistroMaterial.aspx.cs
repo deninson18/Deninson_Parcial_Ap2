@@ -101,5 +101,25 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             }
 
         }
+
+        protected void eliminarButton_Click(object sender, EventArgs e)
+        {
+            Registro registro = new Registro();
+            int id = 0;
+            int.TryParse(idTextBox.Text, out id);
+            if(id> 0)
+            {
+                registro.MaterialId = id;
+                if (registro.eliminar())
+                {
+                    Response.Write("<script>alert('Elimino Correctamente')</script>");
+
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error al Eliminar')</script>");
+                }
+            }
+        }
     }
 }

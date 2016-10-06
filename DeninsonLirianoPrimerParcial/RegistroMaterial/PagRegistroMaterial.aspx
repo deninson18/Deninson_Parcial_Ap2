@@ -21,6 +21,6 @@
     <p>
         <asp:Button ID="nuevoButton" runat="server" OnClick="nuevoButton_Click" Text="NUEVO" />
         <asp:Button ID="guardarButton" runat="server" OnClick="guardarButton_Click" style="margin-left: 78px" Text="GUARDAR" />
-        <asp:Button ID="eliminarButton" runat="server" style="margin-left: 87px" Text="ELIMINAR" />
+        <asp:Button ID="eliminarButton" runat="server" style="margin-left: 87px" Text="ELIMINAR" OnClick="eliminarButton_Click" />
     </p>
 </asp:Content>
