@@ -5,6 +5,7 @@
     ID<asp:TextBox ID="idTextBox" runat="server"></asp:TextBox>
     <p>
         RAZON<asp:TextBox ID="razonTextBox" runat="server"></asp:TextBox>
+        <asp:Button ID="buscarButton" runat="server" OnClick="buscarButton_Click" Text="Buscar" />
     </p>
     MATERIAL<asp:TextBox ID="materialTextBox" runat="server"></asp:TextBox>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CANTIDAD<asp:TextBox ID="cantidadTextBox" runat="server" style="margin-bottom: 2px"></asp:TextBox>

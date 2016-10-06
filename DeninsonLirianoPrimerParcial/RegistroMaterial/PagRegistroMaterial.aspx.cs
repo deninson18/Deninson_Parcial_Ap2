@@ -33,6 +33,13 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
                 registro.AgregarMaterial(row.Cells[0].Text, Convert.ToInt32(row.Cells[1].Text));
             }
         }
+        public void DevolverDatos(Registro registro)
+        {
+            razonTextBox.Text = registro.Razon;
+            MaterialGridView.DataSource = registro.ListaMaterial;
+            MaterialGridView.DataBind();
+            
+        }
 
         protected void nuevoButton_Click(object sender, EventArgs e)
         {
@@ -65,7 +72,7 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
 
         protected void Agregar_Click(object sender, EventArgs e)
         {
-            Registro registo = new Registro();
+            //Registro registo = new Registro();
             DataTable dt = (DataTable)Session["Materiales"];
             dt.Rows.Add(materialTextBox.Text, cantidadTextBox.Text);
             Session["Materiales"] = dt;
@@ -74,6 +81,25 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
 
             materialTextBox.Text = string.Empty;
             cantidadTextBox.Text = string.Empty;
+        }
+
+        protected void buscarButton_Click(object sender, EventArgs e)
+        {
+            Registro registro = new Registro();
+            int id = 0;
+            int.TryParse(idTextBox.Text, out id);
+            if(id > 0)
+            {
+                if (registro.buscar(id))
+                {
+                    DevolverDatos(registro);
+                }
+                else
+                {
+                    Response.Write("<script>alert('No Existe Material ID!!')</script>");
+                }
+            }
+
         }
     }
 }
