@@ -151,9 +151,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{43343103-e62c-48a8-a296-12609d0134c9}</Project>
-      <Name>DAL</Name>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{38486a00-1003-425f-ab9a-1602e187628e}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

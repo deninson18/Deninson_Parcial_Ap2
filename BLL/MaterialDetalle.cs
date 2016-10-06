@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace BLL
 {
-    class MaterialDetalle
+    public class MaterialDetalle
     {
         ConexionDb conexion =new ConexionDb();
        

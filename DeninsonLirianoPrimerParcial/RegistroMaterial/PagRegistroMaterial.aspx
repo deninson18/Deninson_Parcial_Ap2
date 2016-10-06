@@ -10,10 +10,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; CANTIDAD<asp:TextBox ID="cantidadTextBox" runat="server" style="margin-bottom: 2px"></asp:TextBox>
     <asp:Button ID="Agregar" runat="server" Text="Agregar" />
     <p>
-        <asp:GridView ID="MaterialGridView" runat="server">
+        <asp:GridView ID="MaterialGridView" runat="server" AutoGenerateColumns="False">
             <Columns>
-                <asp:BoundField HeaderText="Material" />
-                <asp:BoundField HeaderText="Cantidad" />
+                <asp:BoundField HeaderText="Material" DataField="Material" />
+                <asp:BoundField HeaderText="Cantidad" DataField="Cantidad" />
             </Columns>
         </asp:GridView>
     </p>

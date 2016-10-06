@@ -12,10 +12,13 @@ namespace BLL
 {
     public class Registro : ClaseMaestra
     {
-        ConexionDb conexion = new ConexionDb();
+        //ConexionDb conexion = new ConexionDb();
         public int MaterialId { get; set; }
         public string Razon { get; set; }
         public List<MaterialDetalle> ListaMaterial { get; set; }
+
+   
+
 
         public Registro()
         {
@@ -36,7 +39,7 @@ namespace BLL
             int retorno = 0;
             try
             {
-                retorno = Convert.ToInt32(conexion.ObtenerValor(string.Format("insert into (Razon)values('{0}');select SCOPE_IDENTITY() ", this.Razon)));
+                retorno = Convert.ToInt32(conexion.ObtenerValor(string.Format("insert into Materiales(Razon)values('{0}');select SCOPE_IDENTITY() ", this.Razon)));
                
                 if(retorno > 0)
                 {
@@ -103,13 +106,34 @@ namespace BLL
 
         public override bool modificar()
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+            bool retorno = false;
+            try
+            {
+                retorno = conexion.Ejecutar(string.Format("update Materiales set Razon='{0}' where MaterialId={1}", this.Razon, this.MaterialId));
+                retorno = conexion.Ejecutar(string.Format("delete from MaterialesDetalle where Materialid={0}", this.MaterialId));
+
+                if (retorno)
+                {
+                    foreach(MaterialDetalle mat in this.ListaMaterial)
+                    {
+                        conexion.Ejecutar(string.Format("insert into MaterialesDetalle(MaterialId,Material,Cantidad)values({0},'{1}',{2})", this.MaterialId, mat.Material, mat.Cantidad));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return retorno;
         }
 
        
         public override DataTable Listado(string Campos, string Condicion, string Orden)
         {
-            throw new NotImplementedException();
+            ConexionDb conexion = new ConexionDb();
+
+            return conexion.ObtenerDatos("select" + Campos + "from Material where" + Condicion + " " + Orden);
         }
 
        
