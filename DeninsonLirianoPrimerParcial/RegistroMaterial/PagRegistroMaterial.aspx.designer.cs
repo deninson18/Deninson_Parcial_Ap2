@@ -58,13 +58,13 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
         protected global::System.Web.UI.WebControls.Button Agregar;
         
         /// <summary>
-        /// GridView1 control.
+        /// MaterialGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView MaterialGridView;
         
         /// <summary>
         /// nuevoButton control.
