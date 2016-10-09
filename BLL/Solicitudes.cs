@@ -97,7 +97,7 @@ namespace BLL
                     foreach (DataRow row in dtDetalle.Rows)
                     {
                         AgregarMaterial((row["Material"].ToString()), (int)row["Cantidad"], (float)Convert.ToDecimal(row["Precio"].ToString()));
-                      
+
                     }
 
                 }
