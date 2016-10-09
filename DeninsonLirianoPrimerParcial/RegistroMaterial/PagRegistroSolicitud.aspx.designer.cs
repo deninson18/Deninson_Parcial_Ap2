@@ -10,7 +10,7 @@
 namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
     
     
-    public partial class PagRegistroMaterial {
+    public partial class PagRegistroSolicitud {
         
         /// <summary>
         /// idTextBox control.
@@ -22,15 +22,6 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
         protected global::System.Web.UI.WebControls.TextBox idTextBox;
         
         /// <summary>
-        /// razonTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox razonTextBox;
-        
-        /// <summary>
         /// buscarButton control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,31 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
         protected global::System.Web.UI.WebControls.Button buscarButton;
         
         /// <summary>
-        /// materialTextBox control.
+        /// razonTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox materialTextBox;
+        protected global::System.Web.UI.WebControls.TextBox razonTextBox;
+        
+        /// <summary>
+        /// fechaTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fechaTextBox;
+        
+        /// <summary>
+        /// materialDropDownList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList materialDropDownList;
         
         /// <summary>
         /// cantidadTextBox control.
@@ -58,6 +67,15 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
         protected global::System.Web.UI.WebControls.TextBox cantidadTextBox;
         
         /// <summary>
+        /// precioTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox precioTextBox;
+        
+        /// <summary>
         /// Agregar control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Agregar;
+        
+        /// <summary>
+        /// TotalTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TotalTextBox;
         
         /// <summary>
         /// MaterialGridView control.

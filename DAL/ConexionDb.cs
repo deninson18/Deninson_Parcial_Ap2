@@ -16,7 +16,7 @@ namespace DAL
 
         public ConexionDb()
         {
-            conexion = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=Parcial1db;Integrated Security=True");
+            conexion = new SqlConnection("Data Source=.\\SQLEXPRESS;Initial Catalog=ParcialDeninson1db;Integrated Security=True");
             cmd = new SqlCommand();
         }
 

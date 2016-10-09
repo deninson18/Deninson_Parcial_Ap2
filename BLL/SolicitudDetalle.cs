@@ -3,30 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL;
 using System.ComponentModel;
 
 
 namespace BLL
 {
-    public class MaterialDetalle
+    public class SolicitudDetalle
     {
-        ConexionDb conexion =new ConexionDb();
-       
+
+        public int SolicitudDetalleId { get; set; }
         public string Material { get; set; }
         public int Cantidad { get; set; }
+        public float Precio { get; set; }
 
 
-        public MaterialDetalle()
+        public SolicitudDetalle()
         {
-            this.Material = "Tela";
+            this.SolicitudDetalleId = 0;
+            this.Material = " ";
             this.Cantidad = 0;
+            this.Precio = 0;
         }
 
-        public MaterialDetalle(string Material,int Cantidad)
+        public SolicitudDetalle(string Material,int Cantidad,float Precio)
         {
             this.Material = Material;
             this.Cantidad = Cantidad;
+            this.Precio = Precio;
         }
     }
 }
