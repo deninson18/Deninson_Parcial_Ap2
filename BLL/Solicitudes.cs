@@ -93,7 +93,7 @@ namespace BLL
 
                     DataTable dtDetalle = new DataTable();
 
-                    dtDetalle = conexion.ObtenerDatos(String.Format("select * from SolicitudDetalle where SolicitudId={0}",this.SolicitudId));
+                    dtDetalle = conexion.ObtenerDatos(String.Format("select * from SolicitudDetalle where SolicitudId={0}", this.SolicitudId));
                     foreach (DataRow row in dtDetalle.Rows)
                     {
                         AgregarMaterial((row["Material"].ToString()), (int)row["Cantidad"], (float)Convert.ToDecimal(row["Precio"].ToString()));
