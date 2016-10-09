@@ -48,7 +48,7 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
         }
         public void DevolverDatos(Solicitudes registro)
         {
-            idTextBox.Text = registro.SolicitudId.ToString();
+            
             fechaTextBox.Text = registro.Fecha;
             razonTextBox.Text = registro.Razon;
             TotalTextBox.Text = registro.Total.ToString();
@@ -71,6 +71,24 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             materialDropDownList.DataBind();
         }
 
+        private void Calcular()
+        {
+            float total = 0, suma = 0, resultado = 0;
+            foreach (GridViewRow row in MaterialGridView.Rows)
+            {
+                suma = suma + (float)Convert.ToDecimal(row.Cells[1].Text);
+                total = total + (float)Convert.ToDecimal(row.Cells[2].Text);
+
+            }
+            resultado = suma * total;
+            precioTextBox.Text = string.Empty;
+            cantidadTextBox.Text = string.Empty;
+            cantidadTextBox.Text = string.Empty;
+            TotalTextBox.Text = resultado.ToString();
+
+
+        }
+
         protected void nuevoButton_Click(object sender, EventArgs e)
         {
             idTextBox.Text = string.Empty;
@@ -78,6 +96,7 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             cantidadTextBox.Text = string.Empty;
             MaterialGridView.DataSource = String.Empty;
             MaterialGridView.DataBind();
+            TotalTextBox.Text = string.Empty;
 
         }
 
@@ -102,28 +121,16 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
 
         protected void Agregar_Click(object sender, EventArgs e)
         {
-            float total = 0, suma = 0, resultado = 0;
-            
             DataTable dt = (DataTable)Session["Materiales"];
             dt.Rows.Add(materialDropDownList.SelectedValue, cantidadTextBox.Text,precioTextBox.Text);
             Session["Materiales"] = dt;
             MaterialGridView.DataSource = dt;
             MaterialGridView.DataBind();
-            
-            foreach (GridViewRow row in MaterialGridView.Rows)
-            {
-                suma = suma + (float)Convert.ToDecimal(row.Cells[1].Text);
-                total = total + (float)Convert.ToDecimal(row.Cells[2].Text);
+            Calcular();
+           
 
-            }
-            resultado = suma * total;
-            precioTextBox.Text = string.Empty;
-            cantidadTextBox.Text = string.Empty;
-            TotalTextBox.Text = resultado.ToString();
+         
             
-
-            //materialTextBox.Text = string.Empty;
-            cantidadTextBox.Text = string.Empty;
         }
 
         protected void buscarButton_Click(object sender, EventArgs e)
@@ -152,9 +159,16 @@ namespace DeninsonLirianoPrimerParcial.RegistroMaterial
             int.TryParse(idTextBox.Text, out id);
             if(id> 0)
             {
-              //  registro =id;
+                CargarDatos(registro);
                 if (registro.eliminar())
                 {
+                    idTextBox.Text = string.Empty;
+                    razonTextBox.Text = string.Empty;
+                    cantidadTextBox.Text = string.Empty;
+                    MaterialGridView.DataSource = String.Empty;
+                    MaterialGridView.DataBind();
+                    TotalTextBox.Text = string.Empty;
+                    materialDropDownList.SelectedIndex = 0;
                     Response.Write("<script>alert('Elimino Correctamente')</script>");
 
                 }

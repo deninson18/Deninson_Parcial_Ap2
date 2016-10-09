@@ -44,12 +44,12 @@ namespace BLL
             try
             {
                 retorno = Convert.ToInt32(conexion.ObtenerValor(String.Format("insert into Solicitudes(Fecha,Razon,Total)values('{0}','{1}',{2});select SCOPE_IDENTITY() ", this.Fecha,this.Razon,this.Total)));
-               // this.MaterialId = retorno;
+               SolicitudId = retorno;
                 if(retorno > 0)
                 {
                     foreach (SolicitudDetalle item in this.ListaMaterial)
                     {
-                        conexion.Ejecutar(String.Format("Insert into SolicitudDetalle(MaterialId,Material,Cantidad,Precio) Values ({0},'{1}',{2},{3})",
+                        conexion.Ejecutar(String.Format("Insert into SolicitudDetalle(SolicitudId,Material,Cantidad,Precio) Values ({0},'{1}',{2},{3})",
                             retorno, item.Material, item.Cantidad,item.Precio));
                     }
                 }
@@ -83,20 +83,20 @@ namespace BLL
             DataTable dt = new DataTable();
             try
             {
-                dt = conexion.ObtenerDatos(String.Format("select * from Solicitudes where SolicitudId={0}", Buscado));
+                dt = conexion.ObtenerDatos(String.Format("select * from Solicitudes where SolicitudId = {0} ", Buscado));
                 if(dt.Rows.Count > 0)
                 {
-                    this.SolicitudId = (int)dt.Rows[0]["SolicitudId"];
+                    
                     this.Fecha = dt.Rows[0]["Fecha"].ToString();
                     this.Razon = dt.Rows[0]["Razon"].ToString();
                     this.Total = (float)Convert.ToDecimal(dt.Rows[0]["Total"].ToString());
 
                     DataTable dtDetalle = new DataTable();
 
-                    dtDetalle = conexion.ObtenerDatos(String.Format("select * from SolicitudDetalle where SolicitudId={0}", this.SolicitudId));
+                    dtDetalle = conexion.ObtenerDatos(String.Format("select * from SolicitudDetalle where SolicitudId={0} ", Buscado));
                     foreach (DataRow row in dtDetalle.Rows)
                     {
-                        AgregarMaterial((row["Material"].ToString()), (int)row["Cantidad"], (float)Convert.ToDecimal(row["Precio"].ToString()));
+                        AgregarMaterial(row["Material"].ToString(), (int)row["Cantidad"], (float)Convert.ToDecimal(row["Precio"].ToString()));
 
                     }
 
